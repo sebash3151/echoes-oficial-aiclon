@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --color-light-bg: #F7FBFF;
+  --color-dark-bg: #040308;
+  --color-primary-1: #00C8FF;
+  --color-primary-2: #005AB7;
+  --color-accent: #F06000;
+}
+
+@theme {
+  --font-headline: "Space Grotesk", sans-serif;
+  --font-body: "Montserrat", sans-serif;
+  
+  --color-light-bg: var(--color-light-bg);
+  --color-dark-bg: var(--color-dark-bg);
+  --color-primary-1: var(--color-primary-1);
+  --color-primary-2: var(--color-primary-2);
+  --color-accent: var(--color-accent);
+  
+  --color-surface: #f6fafe;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f0f4f8;
+  --color-surface-container-high: #e4e9ed;
+  
+  --color-dark-surface: #0a0a0f;
+  --color-dark-surface-low: #111418;
+  --color-dark-surface-high: #1a1f24;
+  
+  --color-primary: #005fa7;
+  --color-primary-light: #00C8FF;
+  --color-primary-dark: #005AB7;
+  
+  --color-naranja: #F06000;
+  --color-celestial: #00C8FF;
+  --color-azul: #005AB7;
+}
+
+@layer utilities {
+  .velocity-gradient {
+    background: linear-gradient(135deg, var(--color-primary-1) 0%, var(--color-primary-2) 100%);
+  }
+  .ambient-shadow {
+    box-shadow: 0px 12px 32px rgba(23, 28, 31, 0.06);
+  }
+  .glass-panel {
+    background: rgba(10, 10, 15, 0.7);
+    backdrop-filter: blur(12px);
+  }
+  .circuit-bg {
+    background-image: radial-gradient(circle at 2px 2px, color-mix(in srgb, var(--color-primary-1) 5%, transparent) 1px, transparent 0);
+    background-size: 40px 40px;
+  }
+  .tech-grid-pattern {
+    background-color: var(--color-light-bg);
+    background-image: 
+        linear-gradient(color-mix(in srgb, var(--color-primary-1) 5%, transparent) 1px, transparent 1px),
+        linear-gradient(90deg, color-mix(in srgb, var(--color-primary-1) 5%, transparent) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+[contenteditable]:empty:before {
+  content: attr(data-placeholder);
+  color: #64748b;
+  cursor: text;
+  opacity: 0.6;
+}
